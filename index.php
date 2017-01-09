@@ -67,42 +67,23 @@ session_start();
 	</head>
 	<body>
 		
-	<div class="fh5co-loader"></div>
+		<div class="fh5co-loader"></div>
 	
-	<div id="page">
+		<div id="page">
 
-	<?php include("entete.php"); ?>
-
+			<?php include("entete.php"); ?>
 
 	
-	<div id="fh5co-project">
-		<div class="container">
-			<div class="row animate-box">
-				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-					<h2>Un thème par semaine</h2>
-				<?php 
-				 if(($_SESSION)){
-					echo 'Bonjour  '.$_SESSION['pseudo'].'';
-				
-					echo '<a href="deconnexion.php">Déconnexion</a>';
-					echo'<form action="upload.php" method="post" enctype="multipart/form-data">
-						Selectionne une image:
-					<input type="file" name="fileToUpload" id="fileToUpload">
-					<input type="submit" value="Upload Image" name="submit">
-						</form>';
-				 }?>
-				</div>
-			</div>
-		</div>
-		<?php include("semaine.php");?>
+			<?php include("semaine.php");?>
 		 
+	
+			<?php include("naviguation.php");?>
+	
 
-	<?php include("naviguation.php");?>
-
-	<?php include("description.php");?>
+			<?php include("description.php");?>
 
 	
-	</div>
+		</div>
 	</div>
 	<?php include("foother.php");?>
 
