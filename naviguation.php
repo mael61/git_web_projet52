@@ -1,3 +1,22 @@
+<?php
+
+$host="localhost";    
+$username="mael61";
+$password="github" ;
+ 
+$db_name="projet_52";  
+$con = new PDO('mysql:host='.$host.';dbname='.$db_name, $username, $password);
+$Requete = $con->prepare('SELECT nom FROM `theme` WHERE `date`=CURDATE()-7');
+			$Requete->execute();
+			$nomTheme1 = $Requete->fetchColumn();
+$Requete2 = $con->prepare('SELECT nom FROM `theme` WHERE `date`=CURDATE()');
+			$Requete2->execute();
+			$nomTheme2 = $Requete2->fetchColumn();
+$Requete3 =	$con->prepare('SELECT nom FROM `theme` WHERE `date`=CURDATE()+7');
+			$Requete3->execute();
+			$nomTheme3 = $Requete3->fetchColumn();
+			
+?>
 <div id="fh5co-steps " class="fh5co-bg-section">
 		<div class="container">
 			
@@ -8,7 +27,7 @@
 					<div class="text-center bs-wizard-stepnum"><h4>Semaine 1</h4></div>
 					<div class="progress"><div class="progress-bar"></div></div>
 					<a href="#" class="bs-wizard-dot"></a>
-					<div class="bs-wizard-info text-center"><p>Evolution</p></div>
+					<div class="bs-wizard-info text-center"><p><?php echo($nomTheme1) ;?></p></div>
 				</div>
 				
 
@@ -16,14 +35,14 @@
 					<div class="text-center bs-wizard-stepnum"><h4>Semaine 2</h4></div>
 					<div class="progress"><div class="progress-bar"></div></div>
 					<a href="#" class="bs-wizard-dot"></a>
-					<div class="bs-wizard-info text-center"><p>Musique</p></div>
+					<div class="bs-wizard-info text-center"><p><?php echo($nomTheme2) ;?></p></div>
 				</div>
 
 				<div class="col-xs-4 bs-wizard-step disabled"><!-- complete -->
 					<div class="text-center bs-wizard-stepnum"><h4>Semaine 3</h4></div>
 					<div class="progress"><div class="progress-bar"></div></div>
 					<a href="#" class="bs-wizard-dot"></a>
-					<div class="bs-wizard-info text-center"><p>A définir</p></div>
+					<div class="bs-wizard-info text-center"><p><?php echo($nomTheme3) ;?></p></div>
 				</div>
 
 				
@@ -31,3 +50,4 @@
 
 		</div>
 	</div>
+	
