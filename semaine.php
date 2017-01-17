@@ -5,16 +5,11 @@ $password="github" ;
  
 $db_name="projet_52";  
 $con = new PDO('mysql:host='.$host.';dbname='.$db_name, $username, $password);
-$Requete = $con->prepare('select fichier ,auteur from image where theme = (SELECT nom FROM `theme` WHERE `date`<=CURDATE()-7 and `date`>=CURDATE()-13 )');
+$Requete = $con->prepare('select fichier ,auteur , theme from image where theme = (SELECT nom FROM `theme` WHERE `date`<=CURDATE()-7 and `date`>=CURDATE()-13 )');
 			$Requete->execute();
-			$troisPhoto = $Requete->fetchAll(PDO::FETCH_COLUMN, 0);
+			$troisPhoto = $Requete->fetchAll(PDO::FETCH_ASSOC);
 			print_r($troisPhoto);
-			$Requete->execute();
-			$troisPhotoNom = $Requete->fetchAll(PDO::FETCH_COLUMN, 1);
-			print_r($troisPhotoNom);
-$Requete2 = $con->prepare('SELECT nom FROM `theme` WHERE `date`<=CURDATE()-7 and `date`>=CURDATE()-13');
-			$Requete2->execute();
-			$nomThemePage = $Requete2->fetchColumn();
+			
 			
 ?>		
 <div id="fh5co-project">
@@ -43,33 +38,33 @@ $Requete2 = $con->prepare('SELECT nom FROM `theme` WHERE `date`<=CURDATE()-7 and
 		<div class="row">
 				<div class="col-md-4 animate-box">
 					<a href="#" class="item-grid text-center">
-						<div class="image" style="background-image: url(images/<?php echo($troisPhoto[0]);?>)"></div>
+						<div class="image" style="background-image: url(images/<?php echo($troisPhoto[0]['fichier']);?>)"></div>
 						<div class="v-align">
 							<div class="v-align-middle">
-								<h4 class="title"> thème: <?php echo($nomThemePage) ;?></h4>
-								<h5 class="category"><?php echo($troisPhotoNom[0]);?></h5>
+								<h4 class="title"> thème: <?php echo($troisPhoto[0]['theme']) ;?></h4>
+								<h5 class="category"><?php echo($troisPhoto[0]['auteur']);?></h5>
 							</div>
 						</div>
 					</a>
 				</div>
 				<div class="col-md-4 animate-box">
 					<a href="#" class="item-grid text-center">
-						<div class="image" style="background-image: url(images/<?php echo($troisPhoto[1]);?>)"></div>
+						<div class="image" style="background-image: url(images/<?php echo($troisPhoto[1]['fichier']);?>)"></div>
 						<div class="v-align">
 							<div class="v-align-middle">
-								<h4 class="title">thème: <?php echo($nomThemePage) ;?></h4>
-								<h5 class="category"><?php echo($troisPhotoNom[1]);?></h5>
+								<h4 class="title">thème: <?php echo($troisPhoto[1]['theme']) ;?></h4>
+								<h5 class="category"><?php echo($troisPhoto[1]['auteur']);?></h5>
 							</div>
 						</div>
 					</a>
 				</div>
 				<div class="col-md-4 animate-box">
 					<a href="#" class="item-grid text-center">
-						<div class="image" style="background-image: url(images/<?php echo($troisPhoto[2]);?>)"></div>
+						<div class="image" style="background-image: url(images/<?php echo($troisPhoto[2]['fichier']);?>)"></div>
 						<div class="v-align">
 							<div class="v-align-middle">
-								<h4 class="title">thème: <?php echo($nomThemePage) ;?></h4>
-								<h5 class="category"><?php echo($troisPhotoNom[2]);?></h5>
+								<h4 class="title">thème: <?php echo($troisPhoto[2]['theme']) ;?></h4>
+								<h5 class="category"><?php echo($troisPhoto[2]['auteur']);?></h5>
 							</div>
 						</div>
 					</a>
