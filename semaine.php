@@ -1,9 +1,5 @@
 <?php
-$host="localhost";    
-$username="mael61";
-$password="github" ;
- 
-$db_name="projet_52";  
+include("config.php");
 $con = new PDO('mysql:host='.$host.';dbname='.$db_name, $username, $password);
 $Requete = $con->prepare('select fichier ,auteur , theme from image where theme = (SELECT nom FROM `theme` WHERE `date`<=CURDATE()-7 and `date`>=CURDATE()-13 )');
 			$Requete->execute();
@@ -41,7 +37,7 @@ $Requete = $con->prepare('select fichier ,auteur , theme from image where theme 
 						<div class="image" style="background-image: url(images/<?php echo($troisPhoto[0]['fichier']);?>)"></div>
 						<div class="v-align">
 							<div class="v-align-middle">
-								<h4 class="title"> thème: <?php echo($troisPhoto[0]['theme']) ;?></h4>
+								<h4 class="title"> thème: <?php echo($troisPhoto[0]['theme']);?></h4>
 								<h5 class="category"><?php echo($troisPhoto[0]['auteur']);?></h5>
 							</div>
 						</div>

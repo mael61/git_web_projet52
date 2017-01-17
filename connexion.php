@@ -1,14 +1,6 @@
+
  <?php
- $host="localhost";    
-$username="mael61";
-$password="github" ;
-//$username=$_POST['Username'];       
-//$password=$_POST['Password'];  
-$db_name="projet_52";  
-
-
-
-
+	include("config.php");
     if(empty($_POST['Username'])) {
         echo "Le champ Pseudo est vide.";
     } else {
@@ -16,7 +8,6 @@ $db_name="projet_52";
         if(empty($_POST['Password'])) {
             echo "Le champ Mot de passe est vide.";
         } else {
-          
             $Pseudo = ($_POST['Username']); 
             $MotDePasse = ($_POST['Password']);
          
@@ -45,7 +36,7 @@ $db_name="projet_52";
 					
 					}
 			}
-            }
+        }
         
 		
     
