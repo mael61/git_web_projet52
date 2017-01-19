@@ -21,25 +21,25 @@ $Requete5 =	 $con->prepare('SELECT count(*) FROM `theme` WHERE Completer=1');
 			$Requete5->execute(); 
 			
 			$nbTheme = $Requete5->fetch(PDO::FETCH_ASSOC);
-			print_r($ThemeComplet);
+		//	print_r($ThemeComplet);
 			$nb=$nbTheme['count(*)'];
-			print_r($nb);
+		//	print_r($nb);
 			$i=0;
-			echo('<form>');
-			echo('	<select name="users" onchange="showUser(this.value)">');
-			echo('<option value="">Select a theme:</option>');
+			echo'<form>';
+			echo'	<select name="users" onchange="showUser(this.value)">';
+		echo'<option value="">Select a theme:</option>';
 			while($i <= $nb-1)
 			{
 				echo'<option value="';
-				echo($ThemeComplet[$i]['id']);
+				echo $ThemeComplet[$i]['id'];
 				echo'">';
-				echo($ThemeComplet[$i]['nom']);
-				echo('</option>');
+				echo $ThemeComplet[$i]['nom'];
+				echo'</option>';
 				$i++;
-				echo($i);
+				echo $i;
 			}
-			echo('</select>');
-			echo('</form>');
+			echo'</select>';
+			echo'</form>';
 			
 			
 			
@@ -74,15 +74,8 @@ $Requete5 =	 $con->prepare('SELECT count(*) FROM `theme` WHERE Completer=1');
 				 
 				
 			</div>
-			<div class="col-xs-2 bs bs-wizard-step"> 
-			   <button type="button" onclick="avant()">précédent</button>
-			   </div>
-				<div class="col-xs-2 bs bs-wizard-step"> 
-			   <button type="button" onclick="apres()">suivant</button>
-			   </div>
-
 		</div>
-		</div>
+	</div>
 
 
 
