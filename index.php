@@ -57,7 +57,8 @@ session_start();
 	<link rel="stylesheet" href="css/style.css">
 
 	<!-- Modernizr JS -->
-	<script src="js/modernizr-2.6.2.min.js"></script>
+	<!-- <script src="js/modernizr-2.6.2.min.js"></script> 
+	Sa fait chiez mon code mais c'est moins jolie -->
 
 	<!-- FOR IE9 below -->
 	<!--[if lt IE 9]>

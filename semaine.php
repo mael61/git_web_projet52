@@ -4,7 +4,7 @@ $con = new PDO('mysql:host='.$host.';dbname='.$db_name, $username, $password);
 $Requete = $con->prepare('select fichier ,auteur , theme from image where theme = (SELECT nom FROM `theme` WHERE `date`<=CURDATE()-7 and `date`>=CURDATE()-13 )');
 			$Requete->execute();
 			$troisPhoto = $Requete->fetchAll(PDO::FETCH_ASSOC);
-			print_r($troisPhoto);
+		
 			
 			
 ?>		
@@ -67,6 +67,41 @@ $Requete = $con->prepare('select fichier ,auteur , theme from image where theme 
 				</div>
 			</div>
 			</div>
+			
 </div>
+<form>
+	<select name="users" onchange="showUser(this.value)">
+	<option value="">Select a theme:</option>
+	<option value="1">evolution</option>
+	<option value="2">musique</option>
+	<option value="3">bonheur</option>
+	</select>
+</form>
+
+	<script>
+	
+function showUser(str) {
+   if (str == "") {
+        document.getElementById("fh5co-work-section").innerHTML = "";
+        return;
+    } else {
+        if (window.XMLHttpRequest) {
+            // code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        } else {
+            // code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("fh5co-work-section").innerHTML = this.responseText;
+            }
+        };
+        xmlhttp.open("GET","photo.php?q="+str,true);
+        xmlhttp.send();
+    }
+}
+
+</script>
 		
 	
