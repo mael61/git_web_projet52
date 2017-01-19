@@ -69,7 +69,7 @@ $Requete = $con->prepare('select fichier ,auteur , theme from image where theme 
 			</div>
 			
 </div>
-<form>
+<!--<form>
 	<select name="users" onchange="showUser(this.value)">
 	<option value="">Select a theme:</option>
 	<option value="1">evolution</option>
@@ -77,6 +77,7 @@ $Requete = $con->prepare('select fichier ,auteur , theme from image where theme 
 	<option value="3">bonheur</option>
 	</select>
 </form>
+-->
 
 	<script>
 	

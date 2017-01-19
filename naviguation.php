@@ -19,27 +19,31 @@ $Requete4 =	$con->prepare('SELECT id,nom FROM `theme` WHERE Completer=1');
 			
 $Requete5 =	 $con->prepare('SELECT count(*) FROM `theme` WHERE Completer=1');
 			$Requete5->execute(); 
+			
 			$nbTheme = $Requete5->fetch(PDO::FETCH_ASSOC);
-
+			print_r($ThemeComplet);
 			$nb=$nbTheme['count(*)'];
-			$nb_afficher=3;
+			print_r($nb);
 			$i=0;
-			echo('<ul>');
+			echo('<form>');
+			echo('	<select name="users" onchange="showUser(this.value)">');
+			echo('<option value="">Select a theme:</option>');
 			while($i <= $nb-1)
 			{
-				echo('<li>');
+				echo'<option value="';
+				echo($ThemeComplet[$i]['id']);
+				echo'">';
 				echo($ThemeComplet[$i]['nom']);
-				echo('</li>');
-				 $i++;
+				echo('</option>');
+				$i++;
+				echo($i);
 			}
-			echo('</ul>');
+			echo('</select>');
+			echo('</form>');
 			
 			
 			
 ?>
-
- 
-
 
 <div id="fh5co-steps " class="fh5co-bg-section">
 		<div class="container">
