@@ -27,7 +27,7 @@ $Requete5 =	 $con->prepare('SELECT count(*) FROM `theme` WHERE Completer=1');
 			$i=0;
 			echo'<form>';
 			echo'	<select name="users" onchange="showUser(this.value)">';
-		echo'<option value="">Select a theme:</option>';
+			echo'<option value="">Select a theme:</option>';
 			while($i <= $nb-1)
 			{
 				echo'<option value="';
@@ -36,7 +36,6 @@ $Requete5 =	 $con->prepare('SELECT count(*) FROM `theme` WHERE Completer=1');
 				echo $ThemeComplet[$i]['nom'];
 				echo'</option>';
 				$i++;
-				echo $i;
 			}
 			echo'</select>';
 			echo'</form>';
@@ -75,7 +74,7 @@ $Requete5 =	 $con->prepare('SELECT count(*) FROM `theme` WHERE Completer=1');
 				
 			</div>
 		</div>
-	</div>
+</div>
 
 
 
